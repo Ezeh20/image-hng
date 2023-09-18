@@ -1,13 +1,13 @@
 import { NextResponse, NextRequest } from "next/server";
 import connect from "@/utils/db";
 import User from "@/models/User";
-import bcrypt from "bcryptjs"
+import bcryptjs from "bcrypt"
 
 export const POST = async (request) => {
     const body = await request.json();
     const { email, password } = body
     await connect();
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = await bcryptjs.hash(password, 10)
 
     //check if email already exists
     const user = await User.findOne({ email })

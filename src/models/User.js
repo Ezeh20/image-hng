@@ -1,17 +1,11 @@
 import mongoose from "mongoose";
-const { Schema } = mongoose
 
 let User;
 
-if (mongoose.model.User) {
+if (mongoose.models.User) {
     User = mongoose.model("User");
 } else {
     const userSchema = new mongoose.Schema({
-        username: {
-            type: String,
-            required: true,
-            unique: true
-        },
         email: {
             type: String,
             required: true,

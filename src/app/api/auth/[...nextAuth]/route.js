@@ -1,8 +1,8 @@
 import User from "@/models/User";
 import connect from "@/utils/db";
-import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs"
 import NextAuth from "next-auth/next";
+import CredentialsProvider from "next-auth/providers/credentials";
+import bcryptjs from "bcrypt"
 
 const handler = NextAuth({
     providers: [
@@ -12,13 +12,12 @@ const handler = NextAuth({
             //authorize the user
             async authorize(credentials) {
                 await connect();
-                const { email, password } = credentials
                 try {
-                    const user = await User.findOne({ email })
+                    const user = await User.findOne({ email:credentials.email })
                     //if the user exists, check if the password is correct
                     // retun the user if true else throw an error
                     if (user) {
-                        const isPasswordCorrect = await bcrypt.compare(password, user.password)
+                        const isPasswordCorrect = await bcryptjs.compare(credentials.password, user.password)
                         if (isPasswordCorrect) {
                             return user;
                         } else {
@@ -30,7 +29,6 @@ const handler = NextAuth({
                 } catch (error) {
                     throw new Error(error)
                 }
-
             }
         })
     ],

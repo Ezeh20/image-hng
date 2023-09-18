@@ -1,8 +1,8 @@
-import './globals.css'
+import './globals.scss'
 import AuthProvider from '@/components/AuthProvider/AuthProvider'
 import { Poppins } from 'next/font/google'
 
-const poppins = Poppins({ subsets: ['latin'] })
+const poppins = Poppins({ subsets: ['latin'], weight: ['200', '400', '500'] })
 
 export const metadata = {
   title: 'Image Gallery',
@@ -14,7 +14,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={poppins.className}>
         <AuthProvider>
-          {children}
+          <div>
+            {children}
+          </div>
         </AuthProvider>
       </body>
     </html>
