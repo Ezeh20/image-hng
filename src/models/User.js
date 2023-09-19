@@ -6,6 +6,10 @@ if (mongoose.models.User) {
     User = mongoose.model("User");
 } else {
     const userSchema = new mongoose.Schema({
+        name: {
+            type: String,
+            required: true,
+        },
         email: {
             type: String,
             required: true,

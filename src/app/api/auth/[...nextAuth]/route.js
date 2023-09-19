@@ -13,7 +13,7 @@ const handler = NextAuth({
             async authorize(credentials) {
                 await connect();
                 try {
-                    const user = await User.findOne({ email:credentials.email })
+                    const user = await User.findOne({ email: credentials.email })
                     //if the user exists, check if the password is correct
                     // retun the user if true else throw an error
                     if (user) {

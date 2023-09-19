@@ -1,31 +1,32 @@
 "use client"
-import { useState } from "react"
-import axios from 'axios'
-
+import React, { useState } from 'react'
+import { signIn } from 'next-auth/react'
 const initialState = {
-    name: '',
     email: '',
     password: '',
 }
 
 
-const SignUp = () => {
+const Login = () => {
     const [details, setDetails] = useState(initialState)
-
+    const { email, password } = details
     const submit = async () => {
         try {
-            const { data } = await axios.post('/api/auth/register', details)
-            console.log(data);
+            const { error } = await signIn('credentials', { email, password, redirect: false })
+            const [,second] = error.split(':')
+            if (second) {
+                console.log(second);
+            } else {
+                console.log('valid')
+            }
+
         } catch (error) {
-            console.log(error);
+
         }
     }
 
     return (
         <div>
-            <input type="text" placeholder="email"
-                onChange={e => setDetails({ ...details, name: e.target.value })}
-            />
             <input type="text" placeholder="email"
                 onChange={e => setDetails({ ...details, email: e.target.value })}
             />
@@ -37,4 +38,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default Login
