@@ -1,6 +1,14 @@
 .main {
+  position: relative;
   min-height: 100vh;
   background-image: url('../../src/app/assets/images/oly.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .5);
+  }
+
 }

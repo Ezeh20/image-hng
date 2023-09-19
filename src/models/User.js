@@ -6,7 +6,7 @@ if (mongoose.models.User) {
     User = mongoose.model("User");
 } else {
     const userSchema = new mongoose.Schema({
-        name: {
+        username: {
             type: String,
             required: true,
         },

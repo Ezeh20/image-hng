@@ -7,7 +7,9 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Login />
+      <div className={styles.overlay}>
+        <Login />
+      </div>
     </main>
   )
 }

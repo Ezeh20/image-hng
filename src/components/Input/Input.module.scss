@@ -1,0 +1,36 @@
+.inputField {
+    display: flex;
+    flex-direction: column;
+
+
+    .label {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+
+        @media screen and (min-width:768px) {
+            font-size: 20px;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .input {
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #fff;
+        color: #FFB000;
+        font-weight: 600;
+        background: transparent;
+        padding: 1rem .3rem 0;
+        border-radius: 5px;
+        font-size: 18px;
+
+        &:focus {
+            border-bottom: 2px solid #FFB000;
+        }
+    }
+    
+}

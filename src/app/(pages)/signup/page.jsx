@@ -3,7 +3,7 @@ import { useState } from "react"
 import axios from 'axios'
 
 const initialState = {
-    name: '',
+    username: '',
     email: '',
     password: '',
 }
@@ -24,7 +24,7 @@ const SignUp = () => {
     return (
         <div>
             <input type="text" placeholder="email"
-                onChange={e => setDetails({ ...details, name: e.target.value })}
+                onChange={e => setDetails({ ...details, username: e.target.value })}
             />
             <input type="text" placeholder="email"
                 onChange={e => setDetails({ ...details, email: e.target.value })}
