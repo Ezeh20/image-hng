@@ -7,7 +7,7 @@ import Navigation from '@/components/Navigation/Navigation'
 import styles from './SignUp.module.scss'
 
 const initialState = {
-    username: '',
+    name: '',
     email: '',
     password: '',
 }
@@ -15,7 +15,7 @@ const initialState = {
 
 const SignUp = () => {
     const [details, setDetails] = useState(initialState)
-    const { username, email, password } = details
+    const { name, email, password } = details
     const submit = async () => {
         try {
             const { data } = await axios.post('/api/auth/register', details)
@@ -26,7 +26,7 @@ const SignUp = () => {
     }
 
     const style = {
-        borderBottom: username.length > 0
+        borderBottom: name.length > 0
             ? '2px solid #FFB000' : '2px solid #fff',
         '&:focus': {
             borderBottom: '2px solid #FFB000'
@@ -59,7 +59,7 @@ const SignUp = () => {
                 <form className={styles.loginField}>
                     <Input type="text"
                         label={'UserName'}
-                        onChange={e => setDetails({ ...details, username: e.target.value })}
+                        onChange={e => setDetails({ ...details, name: e.target.value })}
                         style={style}
                     />
                     <Input type="text"

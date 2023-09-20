@@ -1,28 +1,28 @@
 import mongoose from "mongoose";
 
-let User;
+let Data;
 
-if (mongoose.models.User) {
-    User = mongoose.model("User");
+if (mongoose.models.Data) {
+    Data = mongoose.model("Data");
 } else {
-    const userSchema = new mongoose.Schema({
+    const dataSchema = new mongoose.Schema({
         name: {
             type: String,
             required: true,
             unique: true
         },
-        email: {
+        img: {
             type: String,
             required: true,
             unique: true
         },
-        password: {
+        symbol: {
             type: String,
             required: true,
             unique: true
         }
     })
-    User = mongoose.model("User", userSchema)
+    Data = mongoose.model("Data", dataSchema)
 }
 
-export default User
+export default Data

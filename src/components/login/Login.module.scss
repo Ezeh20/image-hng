@@ -4,6 +4,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
+
+    .err {
+        position: absolute;
+        top: 25%;
+
+        @media (orientation: landscape) {
+            @media screen and (max-height: 600px) {
+                top: -5%;
+            }
+        }
+    }
 
     .loginField {
         width: 360px;
@@ -13,9 +25,19 @@
         flex-direction: column;
         gap: 3.5rem;
 
+        .btn {
+            border-top: 2px solid red;
+            border-bottom: 2px solid red;
+            color: red;
+        }
+        .btnAlt{
+            border-top: 2px solid green;
+            border-bottom: 2px solid green;
+        }
+
         @media screen and (min-width:768px) {
             width: 450px;
-            gap:4.5rem;
+            gap: 4.5rem;
         }
 
         @media screen and (max-width:350px) {

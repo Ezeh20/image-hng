@@ -1,35 +1,51 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import Input from '../Input/Input'
 import Button from '../Button/Button'
 import styles from "./Login.module.scss"
+import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
 const initialState = {
-    username: '',
+    name: '',
     password: '',
 }
 
 
 const Login = () => {
     const [details, setDetails] = useState(initialState)
-    const { username, password } = details
+    const [loading, setLoading] = useState(false)
+    const [err, setError] = useState('')
+    const router = useRouter()
+    const session = useSession()
+    const { name, password } = details
+
+    useEffect(() => {
+        if (session.status === "authenticated") {
+            router?.push('/gallery')
+        }
+    }, [router, session.status])
+
     const submit = async () => {
+        setLoading(true)
         try {
-            const { error } = await signIn('credentials', { username, password, redirect: false })
-            const [, second] = error.split(':')
-            if (second) {
-                console.log(second);
+            const res = await signIn('credentials', { name, password, redirect: false })
+            if (!res?.error) {
+                setLoading(false)
+                router.push('/gallery')
             } else {
-                console.log('valid')
+                const [, second] = res?.error.split(':')
+                setError(second)
+                setLoading(false)
             }
-
         } catch (error) {
-
+            setError(error.error)
+            setLoading(false)
         }
     }
     const style = {
-        borderBottom: username.length > 0
+        borderBottom: name.length > 0
             ? '2px solid #FFB000' : '2px solid #fff',
         '&:focus': {
             borderBottom: '2px solid #FFB000'
@@ -44,19 +60,21 @@ const Login = () => {
         }
     }
 
-
     return (
         <section className={styles.login}>
+            {err ? <p className={styles.err}>{err}</p> : undefined}
             <form className={styles.loginField} autoComplete='new-password'>
-                <Input value={username} label="UserName" type="text" id={'username'}
-                    onChange={e => setDetails({ ...details, username: e.target.value })}
+                <Input value={name} label="UserName" type="text" id={'username'}
+                    onChange={e => setDetails({ ...details, name: e.target.value })}
                     style={style}
                 />
                 <Input label="Password" type="password" id={'password'}
                     onChange={e => setDetails({ ...details, password: e.target.value })}
                     style={stylePassword}
                 />
-                <Button type={'button'} label={'Login'} />
+                <Button type={'button'} label={loading ? 'Loading...' : 'Login'} onClick={submit}
+                    className={err ? `${styles.btn}` : ''}
+                />
             </form>
         </section>
     )
