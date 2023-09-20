@@ -1,14 +1,40 @@
 .main {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   background-image: url('../../src/app/assets/images/oly.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (orientation: landscape) {
+    @media screen and (max-height:600px) {
+      height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  ;
 
   .overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, .5);
+
+    @media (orientation: landscape) {
+      @media screen and (max-height:600px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    ;
+
+    .nav {
+      position: absolute;
+      top: 0;
+    }
   }
 
 }
