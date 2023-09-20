@@ -36,6 +36,15 @@ const Login = () => {
         }
     }
 
+    const stylePassword = {
+        borderBottom: password.length > 0
+            ? '2px solid #FFB000' : '2px solid #fff',
+        '&:focus': {
+            borderBottom: '2px solid #FFB000'
+        }
+    }
+
+
     return (
         <section className={styles.login}>
             <form className={styles.loginField} autoComplete='new-password'>
@@ -45,7 +54,7 @@ const Login = () => {
                 />
                 <Input label="Password" type="password" id={'password'}
                     onChange={e => setDetails({ ...details, password: e.target.value })}
-                    style={style}
+                    style={stylePassword}
                 />
                 <Button type={'button'} label={'Login'} />
             </form>

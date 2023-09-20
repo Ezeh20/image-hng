@@ -1,0 +1,51 @@
+.signup {
+    position: relative;
+    height: 100vh;
+    background: url('../../assets/images/sign.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    @media (orientation: landscape) {
+        @media screen and (max-height:600px) {
+            height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, .55);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+        .nav {
+            position: absolute;
+            top: 0;
+        }
+
+        .loginField {
+            width: 360px;
+            padding: 2rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+            @media screen and (min-width:768px) {
+                width: 450px;
+                gap: 3rem;
+            }
+
+            @media screen and (max-width:350px) {
+                width: 300px;
+            }
+        }
+    }
+}
