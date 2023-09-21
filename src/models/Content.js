@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-let Data;
+let Content;
 
-if (mongoose.models.Data) {
-    Data = mongoose.model("Data");
+if (mongoose.models.Content) {
+    Content = mongoose.model("Content");
 } else {
     const dataSchema = new mongoose.Schema({
         name: {
@@ -22,7 +22,7 @@ if (mongoose.models.Data) {
             unique: true
         }
     })
-    Data = mongoose.model("Data", dataSchema)
+    Content = mongoose.model("Content", dataSchema)
 }
 
-export default Data
+export default Content

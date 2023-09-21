@@ -1,12 +1,12 @@
-import Data from "@/models/Data";
-import { connect } from "mongoose";
+import Content from "@/models/Content";
+import connect from "@/utils/db";
 import { NextResponse } from "next/server";
 
 export const GET = async (request) => {
     await connect();
 
     try {
-        const content = await Data.find()
+        const content = await Content.find()
         return NextResponse.json({
             message: 'here you do',
             data: content,

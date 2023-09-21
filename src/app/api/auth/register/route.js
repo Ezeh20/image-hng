@@ -25,7 +25,6 @@ export const POST = async (request) => {
     })
 
     try {
-
         await newUser.save()
         return NextResponse.json({
             message: 'account created successfully',

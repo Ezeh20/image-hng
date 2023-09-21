@@ -1,10 +1,13 @@
 "use client"
 import axios from 'axios'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Input from "@/components/Input/Input"
 import Button from '@/components/Button/Button'
 import Navigation from '@/components/Navigation/Navigation'
+import { useSession } from 'next-auth/react'
 import styles from './SignUp.module.scss'
+import { useRouter } from 'next/navigation'
+import { checkEmail } from '@/utils/email-checker'
 
 const initialState = {
     name: '',
@@ -16,12 +19,40 @@ const initialState = {
 const SignUp = () => {
     const [details, setDetails] = useState(initialState)
     const { name, email, password } = details
+    const [err, setErr] = useState('')
+    const [loading, setLoading] = useState(false)
+    const session = useSession()
+    const router = useRouter()
+    const valid = checkEmail(email)
+
+    useEffect(() => {
+        if (session.status === "authenticated") {
+            router?.push('/gallery')
+        }
+    }, [router, session.status])
+
     const submit = async () => {
+        if (name.trim().length < 3) {
+            setErr('username should be a minimum of 3 characters')
+            return;
+        } else if (!valid) {
+            setErr('enter a valid email')
+            return;
+        } else if (password.trim().length < 8) {
+            setErr('password should be a minimum of 8 characters')
+            return;
+        }
+
         try {
+            setLoading(true)
             const { data } = await axios.post('/api/auth/register', details)
-            console.log(data);
+            if (data?.success) {
+                setLoading(false)
+                router.push('/')
+            }
         } catch (error) {
-            console.log(error);
+            setErr(error.response.data.message)
+            setLoading(false)
         }
     }
 
@@ -53,6 +84,7 @@ const SignUp = () => {
     return (
         <section className={styles.signup}>
             <div className={styles.overlay}>
+                <p className={styles.err}>{err}</p>
                 <div className={styles.nav}>
                     <Navigation path='' text='Login' />
                 </div>
@@ -72,7 +104,7 @@ const SignUp = () => {
                         onChange={e => setDetails({ ...details, password: e.target.value })}
                         style={stylePassword}
                     />
-                    <Button type={'button'} label={'Signup'} onClick={submit} />
+                    <Button type={'button'} label={loading ? 'Loading...' : 'Signup'} onClick={submit} className={err ? `${styles.errAlt}` : ''} />
                 </form>
             </div>
         </section>

@@ -1,0 +1,76 @@
+.main {
+    position: relative;
+    min-height: 100vh;
+    background: url('../../assets/images/gallery.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, .8);
+
+        .section {
+            display: flex;
+            flex-direction: column;
+
+            .header {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: space-between;
+                padding: 3rem 0;
+                gap: 2rem;
+
+                @media screen and (min-width:768px) {
+                    flex-direction: row;
+                }
+
+
+                .input {
+                    width: 100%;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    border-top: 2px solid #fff;
+                    border-bottom: 2px solid #fff;
+                    color: #fff;
+                    font-size: 16px;
+                    padding: 1rem;
+                    border-radius: 5px;
+
+                    @media screen and (min-width:768px) {
+                        width: 500px;
+                    }
+
+                    &:focus {
+                        border-top: 2px solid #FFB000;
+                        border-bottom: 2px solid #FFB000;
+                    }
+                }
+
+                .icon {
+                    position: absolute;
+                    top: 30%;
+                    right: 1%;
+                    font-size: 24px;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: #FFB000;
+                        transform: scale(1.1);
+                    }
+                }
+
+                .input::placeholder {
+                    color: #fff;
+                    opacity: .8;
+                }
+            }
+
+            .button {
+                max-width: 100px;
+                padding: .5rem;
+            }
+        }
+    }
+}

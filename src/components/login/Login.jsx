@@ -28,6 +28,13 @@ const Login = () => {
     }, [router, session.status])
 
     const submit = async () => {
+        if (name.trim().length < 1) {
+            setError('Please enter your username')
+            return;
+        } else if (password.trim().length < 1) {
+            setError('Please enter your password')
+            return;
+        }
         setLoading(true)
         try {
             const res = await signIn('credentials', { name, password, redirect: false })
