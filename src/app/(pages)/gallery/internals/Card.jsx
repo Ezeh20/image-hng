@@ -27,7 +27,16 @@ const Card = ({ itm }) => {
     return (
         <div ref={setNodeRef} {...attributes} {...listeners} className={styles.card}
             style={style}>
-            <Image fill objectFit="cover" priority={true} src={img} alt={name} style={{ borderRadius: '5px' }} />
+            <Image
+                fill
+                sizes='100vw'
+                loading='lazy'
+                objectFit="cover"
+                objectPosition='center'
+                src={img}
+                alt={name}
+                style={{ borderRadius: '5px' }}
+            />
             <div className={styles.overlay}>
                 <p className={styles.name}>{name}</p>
                 <p>{domain}</p>
