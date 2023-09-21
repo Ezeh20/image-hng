@@ -17,7 +17,8 @@ const Card = ({ itm }) => {
         height: '400px',
         borderRadius: '5px',
         opacity: isDragging ? 0.5 : 1,
-        cursor: isDragging ? "grabbing" : "pointer"
+        cursor: isDragging ? "grabbing" : "pointer",
+        touchAction: "none"
     }
 
 
