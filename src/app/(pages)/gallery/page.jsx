@@ -60,7 +60,7 @@ const Gallery = () => {
                 <div className={styles.overlay}>
                     <Container>
                         <div className={styles.section}>
-                            <p className={styles.name}>{name}</p>
+                            <p className={styles.name}>welcome <span className={styles.span}>{name}</span></p>
                             <div className={styles.header}>
                                 <input
                                     type="text"
