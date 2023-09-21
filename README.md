@@ -1,14 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project 
 
-## Cloning the repo
+# Cloning the repo
 - fork the repo
 - in your terminal, run ```git clone https://github.com/Ezeh20/image-hng.git```
 
-### Installing the packages
+# Installing the packages
 This project uses npm so run:
 - ```npm install``` to install the dependencies
 
-### Development server
+# Development server
 To run the project locally:
 ``` npm run dev
 ```
