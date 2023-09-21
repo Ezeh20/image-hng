@@ -63,7 +63,7 @@ const Gallery = () => {
                                 <input type="text" value={search} placeholder='search eg posiedon...' onChange={(e) => setSearch(e.target.value)} className={styles.input} />
                                 <Button label={'Logout'} onClick={signOut} className={styles.button} />
                             </div>
-                            <Cards filter={filter} setFilter={setFilter} />
+                            <Cards filter={filter} setFilter={setFilter}  search={search}/>
                         </div>
                     </Container>
                 </div>

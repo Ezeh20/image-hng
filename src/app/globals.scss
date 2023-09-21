@@ -15,9 +15,20 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-input:autofill{
+input:autofill {
   font-size: 30rem;
 }
+
+::-webkit-scrollbar {
+  display: inline-flex;
+  width: .25vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #FFB000);
+  border-radius: 20px;
+}
+
 
 
 body {
