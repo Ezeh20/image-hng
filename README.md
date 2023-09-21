@@ -10,6 +10,6 @@ This project uses npm so run:
 - ```npm install``` to install the dependencies
 
 # Development server
-To run the project locally:
+- To run the project locally:
 ``` npm run dev ```
-Open (http://localhost:3000) with your browser to see the result.
+- Open (http://localhost:3000) with your browser to see the result.
