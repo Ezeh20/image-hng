@@ -1,7 +1,7 @@
 import styles from './Cards.module.scss'
 import Card from './Card'
 import { DndContext, closestCenter, MouseSensor, KeyboardSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core'
-import { SortableContext, arrayMove, rectSortingStrategy, rectSwappingStrategy } from '@dnd-kit/sortable'
+import { SortableContext, arrayMove, rectSwappingStrategy } from '@dnd-kit/sortable'
 
 const Cards = ({ filter, setFilter, search }) => {
     const mouseSensor = useSensor(MouseSensor);
