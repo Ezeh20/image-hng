@@ -26,6 +26,7 @@ const Gallery = () => {
         }
     }, [data])
 
+    
     //protect the gallery route
     useEffect(() => {
         if (session.status === "unauthenticated") {
