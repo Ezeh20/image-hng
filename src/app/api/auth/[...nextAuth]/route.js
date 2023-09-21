@@ -33,7 +33,7 @@ const handler = NextAuth({
         })
     ],
     pages: {
-        error: '/login'
+        error: '/'
     }
 })
 
