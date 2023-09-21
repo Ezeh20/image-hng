@@ -11,7 +11,8 @@
     .card {
         position: relative;
         background-size: cover;
-        touch-action: none;
+        touch-action: manipulation;
+
         &:hover .overlay {
             display: none;
         }
