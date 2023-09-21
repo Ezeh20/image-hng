@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org/) project which is hosted on vercel
 https://image-hng.vercel.app/
 
 ## Tools used
+- MongoDB - for storing users and data content
+- NextAuth - for authentication
+
 # Clone the repo
 - fork the repo
 - in your terminal, run ```git clone https://github.com/Ezeh20/image-hng.git```
