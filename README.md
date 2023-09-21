@@ -4,6 +4,7 @@ https://image-hng.vercel.app/
 ## Tools used
 - MongoDB - for storing users and data content
 - NextAuth - for authentication
+- dnd kit - for draggables 
 
 # Clone the repo
 - fork the repo
