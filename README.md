@@ -11,6 +11,5 @@ This project uses npm so run:
 
 # Development server
 To run the project locally:
-``` npm run dev
-```
+``` npm run dev ```
 Open (http://localhost:3000) with your browser to see the result.
