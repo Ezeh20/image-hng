@@ -3,12 +3,13 @@
     min-height: 100vh;
     background: url('https://i.ibb.co/tspg3mB/gallery.webp');
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
 
     .overlay {
-        position: absolute;
+        
         inset: 0;
-        background: rgba(0, 0, 0, .8);
+        background: rgba(0, 0, 0, .6);
 
         .section {
             display: flex;
@@ -16,7 +17,7 @@
             .name{
                 margin-top: 2rem;
                 .span{
-                    color: #FFB000;
+                    color:#FFB000;
                 }
             }
 

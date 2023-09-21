@@ -45,7 +45,7 @@ const Gallery = () => {
         return (
             <div className={styles.main}>
                 <div className={styles.overlay}
-                    style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+                    style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight:"100vh" }}
                 >
                     <Image width={'80'} height={'80'} src={loader} alt='loader' />
                 </div>
