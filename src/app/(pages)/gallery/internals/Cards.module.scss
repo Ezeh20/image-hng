@@ -1,8 +1,12 @@
 .main {
-    margin: 3rem 0;
+    margin: 2.5rem 1.5rem 3.5rem;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    @media screen and (min-width: 768px) {
+        margin: 3rem 0;
+    }
 
     @media screen and (min-width: 1440px) {
         grid-template-columns: repeat(5, 1fr);
