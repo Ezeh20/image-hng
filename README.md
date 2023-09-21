@@ -1,6 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project 
+This is a [Next.js](https://nextjs.org/) project which is hosted on vercel
+https://image-hng.vercel.app/
 
-# Cloning the repo
+# Clone the repo
 - fork the repo
 - in your terminal, run ```git clone https://github.com/Ezeh20/image-hng.git```
 
@@ -8,9 +9,8 @@ This is a [Next.js](https://nextjs.org/) project
 This project uses npm so run:
 - ```npm install``` to install the dependencies
 
-*** Development server
+# Development server
 To run the project locally:
 ``` npm run dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
