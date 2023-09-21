@@ -66,7 +66,7 @@ const Gallery = () => {
                                 <input
                                     type="text"
                                     value={search}
-                                    placeholder='search eg posiedon...'
+                                    placeholder='search e.g athena...'
                                     onChange={(e) => setSearch(e.target.value)}
                                     className={styles.input} />
                                 <Button

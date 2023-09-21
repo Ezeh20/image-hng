@@ -46,6 +46,7 @@ const SignUp = () => {
         try {
             setLoading(true)
             const { data } = await axios.post('/api/auth/register', details)
+            console.log(data);
             if (data?.success) {
                 setLoading(false)
                 router.push('/')
