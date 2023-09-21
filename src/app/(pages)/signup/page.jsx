@@ -91,16 +91,19 @@ const SignUp = () => {
                 <form className={styles.loginField}>
                     <Input type="text"
                         label={'UserName'}
+                        value={name.trim()}
                         onChange={e => setDetails({ ...details, name: e.target.value })}
                         style={style}
                     />
                     <Input type="text"
                         label={'Email'}
+                        value={email.trim()}
                         onChange={e => setDetails({ ...details, email: e.target.value })}
                         style={styleEmail}
                     />
                     <Input type="password"
                         label={'Password'}
+                        value={password.trim()}
                         onChange={e => setDetails({ ...details, password: e.target.value })}
                         style={stylePassword}
                     />

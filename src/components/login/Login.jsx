@@ -37,7 +37,8 @@ const Login = () => {
         }
         setLoading(true)
         try {
-            const res = await signIn('credentials', { name, password, redirect: false })
+            const res = await signIn('credentials',
+                { name: name.trim(), password: password.trim(), redirect: false })
             if (!res?.error) {
                 setLoading(false)
                 router.push('/gallery')
@@ -71,11 +72,11 @@ const Login = () => {
         <section className={styles.login}>
             {err ? <p className={styles.err}>{err}</p> : undefined}
             <form className={styles.loginField} autoComplete='new-password'>
-                <Input value={name} label="UserName" type="text" id={'username'}
+                <Input value={name.trim()} label="UserName" type="text" id={'username'}
                     onChange={e => setDetails({ ...details, name: e.target.value })}
                     style={style}
                 />
-                <Input label="Password" type="password" id={'password'}
+                <Input value={password.trim()} label="Password" type="password" id={'password'}
                     onChange={e => setDetails({ ...details, password: e.target.value })}
                     style={stylePassword}
                 />
