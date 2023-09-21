@@ -35,7 +35,7 @@ const Gallery = () => {
 
     //search feature, basically just filtering the returned data
     useEffect(() => {
-        const filtered = gallery.filter((itm) => itm.name.toLowerCase().includes(search))
+        const filtered = gallery.filter((itm) => itm.name.toLowerCase().includes(search.toLowerCase()))
         setFilter(filtered)
     }, [search, gallery])
 
@@ -51,7 +51,7 @@ const Gallery = () => {
             </div>
         )
     }
-   
+
 
     if (session.status === "authenticated") {
         return (
@@ -63,7 +63,7 @@ const Gallery = () => {
                                 <input type="text" value={search} placeholder='search eg posiedon...' onChange={(e) => setSearch(e.target.value)} className={styles.input} />
                                 <Button label={'Logout'} onClick={signOut} className={styles.button} />
                             </div>
-                            <Cards filter={filter} setFilter={setFilter}  search={search}/>
+                            <Cards filter={filter} setFilter={setFilter} search={search} />
                         </div>
                     </Container>
                 </div>
