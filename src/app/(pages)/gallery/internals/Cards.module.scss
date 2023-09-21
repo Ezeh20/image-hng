@@ -1,0 +1,36 @@
+.main {
+    margin: 3rem 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    @media screen and (min-width: 1440px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .card {
+        position: relative;
+        background-size: cover;
+
+        &:hover .overlay {
+            display: none;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            transition: all 300ms linear;
+            display: flex;
+            padding: 1rem;
+            font-weight: 200;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .name {
+                font-size: 18px;
+            }
+        }
+
+    }
+}

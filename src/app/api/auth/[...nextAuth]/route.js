@@ -16,7 +16,6 @@ const handler = NextAuth({
                     const user = await User.findOne({ name: credentials.name })
                     //if the user exists, check if the password is correct
                     // retun the user if true else throw an error
-                    console.log(user);
                     if (user) {
                         const isPasswordCorrect = await bcryptjs.compare(credentials.password, user.password)
                         if (isPasswordCorrect) {

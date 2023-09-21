@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Button from '@/components/Button/Button'
 import Container from '@/components/Container/Container'
+import Cards from './internals/Cards'
 import { useRouter } from 'next/navigation'
 import { useSession, signOut } from 'next-auth/react'
 import useSWR from 'swr'
@@ -15,11 +16,13 @@ const Gallery = () => {
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data, isLoading } = useSWR("/api/data", fetcher);
     const [gallery, setGallery] = useState([])
+    const [search, setSearch] = useState('')
     const [filter, setFilter] = useState([])
+
 
     useEffect(() => {
         if (data) {
-            setGallery(data.data[0].gods)
+            setGallery(data?.data[0].gods)
         }
     }, [data])
 
@@ -32,9 +35,9 @@ const Gallery = () => {
 
     //search feature, basically just filtering the returned data
     useEffect(() => {
-        const filtered = gallery.filter((itm) => itm.name.toLowerCase().includes('hades'))
+        const filtered = gallery.filter((itm) => itm.name.toLowerCase().includes(search))
         setFilter(filtered)
-    }, [gallery])
+    }, [search, gallery])
 
 
     if (isLoading) {
@@ -48,6 +51,7 @@ const Gallery = () => {
             </div>
         )
     }
+   
 
     if (session.status === "authenticated") {
         return (
@@ -56,9 +60,10 @@ const Gallery = () => {
                     <Container>
                         <div className={styles.section}>
                             <div className={styles.header}>
-                                <input type="text" placeholder='search eg posiedon...' className={styles.input} />
+                                <input type="text" value={search} placeholder='search eg posiedon...' onChange={(e) => setSearch(e.target.value)} className={styles.input} />
                                 <Button label={'Logout'} onClick={signOut} className={styles.button} />
                             </div>
+                            <Cards filter={filter} setFilter={setFilter} />
                         </div>
                     </Container>
                 </div>
