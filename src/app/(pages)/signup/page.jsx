@@ -104,7 +104,12 @@ const SignUp = () => {
                         onChange={e => setDetails({ ...details, password: e.target.value })}
                         style={stylePassword}
                     />
-                    <Button type={'button'} label={loading ? 'Loading...' : 'Signup'} onClick={submit} className={err ? `${styles.errAlt}` : ''} />
+                    <Button
+                        type={'button'}
+                        label={loading ? 'Loading...' : 'Signup'}
+                        onClick={submit} className={err ? `${styles.errAlt}`
+                            : ''}
+                    />
                 </form>
             </div>
         </section>

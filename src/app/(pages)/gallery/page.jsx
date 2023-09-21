@@ -39,6 +39,7 @@ const Gallery = () => {
         setFilter(filtered)
     }, [search, gallery])
 
+    const name = session?.data?.user?.name
 
     if (isLoading) {
         return (
@@ -59,11 +60,25 @@ const Gallery = () => {
                 <div className={styles.overlay}>
                     <Container>
                         <div className={styles.section}>
+                            <p className={styles.name}>{name}</p>
                             <div className={styles.header}>
-                                <input type="text" value={search} placeholder='search eg posiedon...' onChange={(e) => setSearch(e.target.value)} className={styles.input} />
-                                <Button label={'Logout'} onClick={signOut} className={styles.button} />
+                                <input
+                                    type="text"
+                                    value={search}
+                                    placeholder='search eg posiedon...'
+                                    onChange={(e) => setSearch(e.target.value)}
+                                    className={styles.input} />
+                                <Button
+                                    label={'Logout'}
+                                    onClick={signOut}
+                                    className={styles.button}
+                                />
                             </div>
-                            <Cards filter={filter} setFilter={setFilter} search={search} />
+                            <Cards
+                                filter={filter}
+                                setFilter={setFilter}
+                                search={search}
+                            />
                         </div>
                     </Container>
                 </div>
