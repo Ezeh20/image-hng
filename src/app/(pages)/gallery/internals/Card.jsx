@@ -30,7 +30,7 @@ const Card = ({ itm }) => {
             <Image
                 fill
                 sizes='100vw'
-                loading='lazy'
+                priority={true}
                 objectFit="cover"
                 objectPosition='center'
                 src={img}
