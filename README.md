@@ -1,6 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project which is hosted on vercel
 https://image-hng.vercel.app/
 
+![img](https://github.com/Ezeh20/image-hng/assets/29344226/f384693f-d4a0-4ddc-b16e-18861e3dd437)
+
 **Default credentials**
 - email: user@example.com
 - password: 1Password
