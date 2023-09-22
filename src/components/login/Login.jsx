@@ -70,12 +70,17 @@ const Login = () => {
 
     return (
         <section className={styles.login}>
-            {err ? <p className={styles.err}>{err}</p> : undefined}
+
             <form className={styles.loginField} autoComplete='new-password'>
-                <Input value={name.trim()} label="UserName" type="text" id={'username'}
-                    onChange={e => setDetails({ ...details, name: e.target.value })}
-                    style={style}
-                />
+                <div className={styles.top}>
+                    {err ? <p className={styles.err}>{err}</p> : undefined}
+                    <Input value={name.trim()} label="UserName" type="text" id={'username'}
+                        placeholder="user@example.com"
+                        onChange={e => setDetails({ ...details, name: e.target.value })}
+                        style={style}
+                        className={styles.user}
+                    />
+                </div>
                 <Input value={password.trim()} label="Password" type="password" id={'password'}
                     onChange={e => setDetails({ ...details, password: e.target.value })}
                     style={stylePassword}
