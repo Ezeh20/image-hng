@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project which is hosted on vercel
 https://image-hng.vercel.app/
 
-######Default credentials
+** Default credentials **
 - email: user@example.com
 - password: 1Password
 
