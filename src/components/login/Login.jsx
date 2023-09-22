@@ -69,27 +69,35 @@ const Login = () => {
     }
 
     return (
-        <section className={styles.login}>
+        <>
+            <section className={styles.login}>
 
-            <form className={styles.loginField} autoComplete='new-password'>
-                <div className={styles.top}>
-                    {err ? <p className={styles.err}>{err}</p> : undefined}
-                    <Input value={name.trim()} label="UserName" type="text" id={'username'}
-                        placeholder="user@example.com"
-                        onChange={e => setDetails({ ...details, name: e.target.value })}
-                        style={style}
-                        className={styles.user}
+                <form className={styles.loginField} autoComplete='new-password'>
+                    <div className={styles.top}>
+                        {err ? <p className={styles.err}>{err}</p> : undefined}
+                        <Input value={name.trim()} label="UserName" type="text" id={'username'}
+                            placeholder="user@example.com"
+                            onChange={e => setDetails({ ...details, name: e.target.value })}
+                            style={style}
+                            className={styles.user}
+                        />
+                    </div>
+                    <Input value={password.trim()} label="Password" type="password" id={'password'}
+                        onChange={e => setDetails({ ...details, password: e.target.value })}
+                        style={stylePassword}
                     />
-                </div>
-                <Input value={password.trim()} label="Password" type="password" id={'password'}
-                    onChange={e => setDetails({ ...details, password: e.target.value })}
-                    style={stylePassword}
-                />
-                <Button type={'button'} label={loading ? 'Loading...' : 'Login'} onClick={submit}
-                    className={err ? `${styles.btn}` : ''}
-                />
-            </form>
-        </section>
+                    <div className={styles.bottom}>
+                        <Button type={'button'} label={loading ? 'Loading...' : 'Login'} onClick={submit}
+                            className={err ? `${styles.btn} ${styles.abc}` : `${styles.abc}`}
+                        />
+                        <p>Default</p>
+                        <p>UserName: user@example.com</p>
+                        <p>Password: 1Password</p>
+                    </div>
+
+                </form>
+            </section>
+        </>
     )
 }
 
